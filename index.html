@@ -1083,7 +1083,7 @@
     <div class="stat-l">Annual procurement overseen</div>
   </div>
   <div class="stat">
-    <div class="stat-n">12–18<span>wk</span></div>
+    <div class="stat-n">12–18<span>wks</span></div>
     <div class="stat-l">Fixed scope. Real outcomes.</div>
   </div>
 </div>
@@ -1115,10 +1115,10 @@
             <span class="project-tag">Emerging Brand</span>
           </div>
           <h3 class="project-title">Garage to Walmart shelf</h3>
-          <p class="project-outcome">Zero to shelf, zero chargebacks. Built full distribution infrastructure from nothing in 14 weeks before a first big box placement.</p>
+          <p class="project-outcome">Built full distribution infrastructure from nothing in 14 weeks before a first big box placement.</p>
         </div>
         <div class="project-stat-block">
-          <div class="project-stat-n">14<span>wk</span></div>
+          <div class="project-stat-n">14<span>wks</span></div>
           <div class="project-stat-l">Zero to shelf</div>
         </div>
       </div>
@@ -1131,10 +1131,10 @@
             <span class="project-tag">Fortune 500</span>
           </div>
           <h3 class="project-title">Untangling a compliance failure before it became a crisis</h3>
-          <p class="project-outcome">Root cause identified in week 3. Compliance rate moved from 61% to 94% within one quarter across intercompany programs.</p>
+          <p class="project-outcome">Root cause identified in week 3. Compliance rate moved from 61% to 95% within one quarter across products.</p>
         </div>
         <div class="project-stat-block">
-          <div class="project-stat-n">94<span>%</span></div>
+          <div class="project-stat-n">95<span>%</span></div>
           <div class="project-stat-l">Compliance rate</div>
         </div>
       </div>
@@ -1241,7 +1241,7 @@
   <div class="section-inner">
     <div>
       <p class="summit-eyebrow">CPG Growth Summit</p>
-      <h2 class="summit-h2">The best deals start at dinner.</h2>
+      <h2 class="summit-h2">The best deals happen at dinner.</h2>
       <p class="summit-p">An exclusive gathering of forward-thinking CPG brands and big-box retail leaders designed for meaningful collaboration and impactful networking. The CPG Growth dinner will provide invaluable insights and actionable opportunities to elevate your presence in big-box retail.</p>
       <a href="#" class="btn-cream">Stay in the loop</a>
         <div class="summit-partner">
@@ -1300,7 +1300,7 @@
         <h2 class="contact-h2">For project inquiries,<br>let's start here.</h2>
         <p class="contact-sub">Tell us about your brand and what you're working toward. We'll take it from there.</p>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xzdqlakd" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>Your Name <span class="req">*</span></label>
@@ -1349,6 +1349,10 @@
           <label>How did you hear about Retail Buddy? <span class="req">*</span></label>
           <input type="text" name="referral" required>
         </div>
+        <input type="hidden" name="_subject" value="New Project Inquiry — Retail Buddy">
+        <input type="hidden" name="_next" value="https://retail-buddy.com">
+        <input type="hidden" name="_subject" value="New Project Inquiry — Retail Buddy">
+        <input type="hidden" name="_next" value="https://retail-buddy.com">
         <button type="submit" class="btn-primary">Submit inquiry</button>
         <div class="form-success" id="form-success">Thank you — we'll be in touch soon.</div>
       </form>
@@ -1357,15 +1361,13 @@
 </section>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const obj = {};
-  data.forEach((v, k) => obj[k] = v);
-  console.log('Form submission:', obj);
-  form.reset();
-  document.getElementById('form-success').style.display = 'block';
+// Formspree handles form submission natively
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    const btn = this.querySelector('button[type="submit"]');
+    if (btn) btn.textContent = 'Sending...';
+  });
 }
 </script>
 
